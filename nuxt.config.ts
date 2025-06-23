@@ -8,7 +8,7 @@ export default defineNuxtConfig({
   plugins: ['~/plugins/gtm-pageview.client.ts'],
   compatibilityDate: '2025-06-20',
   nitro: {
-    preset: 'netlify'
+    preset: 'static'
   },
   devtools: { enabled: true },
   modules: ['@zadigetvoltaire/nuxt-gtm', '@hypernym/nuxt-gsap'],
@@ -16,7 +16,7 @@ export default defineNuxtConfig({
     plugins: [svgLoader()]
   },
   gtm: {
-    id: 'GTM-N5FZ4DC8',
+    id: 'GTM-',
     defer: true,
     enabled: true,
     debug: true
@@ -31,7 +31,7 @@ export default defineNuxtConfig({
   },
   app: {
     head: {
-      titleTemplate: '%s · Insmed Clinical trials',
+      titleTemplate: '%s · Ackerman portfolio',
       meta: [
         { charset: 'utf-8' },
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },

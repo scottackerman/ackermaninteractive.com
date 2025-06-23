@@ -8,7 +8,7 @@
     "locations": "Multiple US locations available",
     "criteria": ["Current MAC lung infection (untreated)", "Adult", "Non-smoker"],
     "identity": "ENCORE",
-    "url": "https://clinicaltrials.gov/study/NCT04677569"
+    "url": "http://www.test.com/"
   },
   {
     "icon": "crssnp.svg",
@@ -19,7 +19,7 @@
     "locations": "Multiple US locations available",
     "criteria": ["CRS without nasal polyps", "Adult", "Scheduled sinus surgery during study at any time"],
     "identity": "BiRCh",
-    "url": "https://connect.trialscope.com/studies/745d2e53-fe55-4723-a23a-e932a8858951"
+    "url": "http://www.test.com/"
   },
   {
     "icon": "hs.svg",
@@ -30,7 +30,7 @@
     "locations": "Multiple US locations available",
     "criteria": ["Diagnosis of moderate to severe Hidradenitis Suppurativa (HS) for at least 6 months", "Adult", "HS lesions in at least 2 distinct anatomic areas"],
     "identity": "CEDAR",
-    "url": "http://www.insmedcedarstudy.com/"
+    "url": "http://www.test.com/"
   },
   {
     "icon": "pah.svg",
@@ -41,7 +41,7 @@
     "locations": "Multiple US locations available",
     "criteria": ["Diagnosis of PAH for at least 3 months", "Adult", "Non-smoker"],
     "identity": "",
-    "url": "https://clinicaltrials.gov/study/NCT05147805?intr=Treprostinil%20Palmitil%20Inhalation%20Powder&rank=5"
+    "url": "http://www.test.com/"
   },
   {
     "icon": "dmd.svg",
@@ -52,6 +52,6 @@
     "locations": "One US location available",
     "criteria": ["Male", "Definitive diagnosis of DMD", "2-4 years old"],
     "identity": "ASCEND",
-    "url": "https://clinicaltrials.gov/study/NCT06817382?term=INS1201&rank=1"
+    "url": "http://www.test.com/"
   }
 ]

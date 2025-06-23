@@ -2,43 +2,19 @@
 
 ---
 
+## TODOs:
+
+Remove all insm refs, rename trials to projects
+
 ## Dynamic areas
-
-### Cookie management
-
-You can get or set cookies by importing the useCookies composable:
-```javascript
-import { getCookie, setCookie } from '~/composables/useCookies'
-``` 
-
-#### Retrieve a cookie value by name:
-
-@param {string} name - The name of the cookie to retrieve.
-@returns {string | null} - The decoded cookie value if found, otherwise null.
-
-```javascript
-const token = getCookie('us-only-consent')
-```
-
-#### Set a cookie with optional expiration:
-
-@param {string} name - The name of the cookie.
-@param {string} value - The value to store (will be URL-encoded).
-@param {number} [days] - Optional number of days until the cookie expires. 
-
-```javascript
-setCookie('theme', 'dark', 7) //Expires in 7 days
-
-setCookie('sessionId', 'abc123') //Session only
-```
 
 ### Structured data
 
 Each page has it's own structured data file here: `/data/{page}.ts`.
 
-### Trial cards
+### Project cards
 
-Trial cards can be edited or added to by updating `/data/trials.json`. Just edit, reorder, add, or remove nodes as needed.
+Project cards can be edited or added to by updating `/data/trials.json`. Just edit, reorder, add, or remove nodes as needed.
 
 ---
 
@@ -68,10 +44,4 @@ The code and markup are in `components/global/video-wall.vue`.
 
 * `npm run lint:css:fix` for auto-fixing fixable css lint issues
 
-* `npm run dev` makes it go..
-
-Dev: https://insmed-dev.netlify.app/ password: insmeddev
-
-Stage: https://insmed-stage.netlify.app/ password: insmedstage
-
-Prod: https://insmed-prod.netlify.app/
+* `npm run dev` makes it go
