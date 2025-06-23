@@ -1,0 +1,43 @@
+{
+  "name": "nuxt-app",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "npm run generate-sitemap && nuxt build",
+    "dev": "nuxt dev",
+    "generate": "npm run generate-sitemap && nuxt generate",
+    "preview": "nuxt preview",
+    "analyze": "NODE_OPTIONS='--trace-warnings' nuxt build",
+    "postinstall": "nuxt prepare",
+    "generate-sitemap": "node ./scripts/generate-sitemap.js",
+    "lint:css": "stylelint **/*.{css,scss,vue} --custom-syntax postcss-html",
+    "lint:css:fix": "stylelint **/*.{css,scss,vue} --fix",
+    "lint:js": "eslint components/ data/ pages/ composables/"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.29.0",
+    "@hypernym/nuxt-gsap": "^2.4.2",
+    "@nuxt/devtools": "^1.0.8",
+    "@nuxtjs/i18n": "^8.1.1",
+    "@stylistic/stylelint-plugin": "^3.1.2",
+    "@zadigetvoltaire/nuxt-gtm": "^0.0.13",
+    "eslint": "^9.29.0",
+    "eslint-plugin-nuxt": "^4.0.0",
+    "eslint-plugin-vue": "^10.2.0",
+    "globals": "^16.2.0",
+    "nuxi": "^3.10.1",
+    "nuxt": "^3.10.3",
+    "postcss-html": "^1.8.0",
+    "sass": "^1.71.1",
+    "stylelint": "^16.20.0",
+    "stylelint-config-standard": "^36.0.1",
+    "stylelint-config-standard-scss": "^13.1.0",
+    "stylelint-scss": "^6.12.0",
+    "typescript-eslint": "^8.34.1",
+    "vite-svg-loader": "^5.1.0"
+  },
+  "dependencies": {
+    "axios": "^1.6.7",
+    "pinia": "^2.1.7"
+  }
+}

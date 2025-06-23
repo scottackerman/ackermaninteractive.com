@@ -1,0 +1,101 @@
+@use 'variables' as *;
+
+footer {
+  background-color: var(--darkblue);
+  color: var(--white);
+  text-align: left;
+  display: flex;
+  justify-content: center;
+  padding: $spacing-4 $spacing-8;
+
+  .footer-contents {
+    width: $size-content-desktop;
+
+    .footer-top {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      width: 100%;
+      margin-bottom: 16px;
+
+      .logo-link {
+        color: var(--white);
+        flex-shrink: 0;
+
+        .logo-svg {
+          width: 295px;
+          height: auto;
+        }
+      }
+
+      .footer-links {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        gap: 32px;
+        margin: 42px 0 $spacing-3;
+        justify-content: flex-start;
+
+        .nav {
+          color: var(--white);
+        }
+
+        .text-btn {
+          color: var(--white);
+          font-weight: 900;
+          text-decoration: none;
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          text-align: center;
+          padding: $button-tb $button-lr;
+          border: none;
+          border-radius: $border-radius--med;
+          cursor: pointer;
+          background-color: var(--darkpurple);
+          margin: $spacing-3 0 $spacing-10;
+        }
+      }
+    }
+
+    .footer-legal {
+      margin-bottom: $spacing-4;
+    }
+  }
+
+  .tc-link {
+    margin-right: $spacing-4;
+  }
+
+  @media screen and (min-width: $size-content-desktop) {
+    padding: $spacing-6 $spacing-8;
+
+    .footer-contents {
+      .footer-top {
+        flex-direction: row;
+        align-items: center;
+
+        .footer-links {
+          flex-direction: row;
+          justify-content: flex-end;
+          margin: 0;
+
+          .text-btn {
+            border-left: 2px solid var(--white);
+            padding-left: $spacing-4;
+            margin-top: -4px;
+            background-color: transparent;
+          }
+        }
+      }
+
+      .footer-legal {
+        margin-bottom: $spacing-2;
+      }
+    }
+
+    .tc-link {
+      margin-right: $spacing-2;
+    }
+  }
+}

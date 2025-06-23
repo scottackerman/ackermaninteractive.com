@@ -1,0 +1,95 @@
+@use 'variables' as *;
+@use '../mixins/mixins' as *;
+
+.carousel-wrapper {
+  position: relative;
+  padding: 2rem 0; // optional spacing for buttons/progress
+}
+
+.carousel {
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  scroll-snap-type: x mandatory;
+}
+
+.carousel > ul {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 1rem;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.carousel > ul > li {
+  flex: 0 0 auto;
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  scroll-snap-align: start;
+  background-color: var(--white);
+  border-radius: $border-radius--med;
+}
+
+/* Position left/right buttons */
+.carousel-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+  background: white; // or semi-transparent
+  border: none;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+}
+
+.carousel-button.prev {
+  left: 0;
+}
+
+.carousel-button.next {
+  right: 0;
+}
+
+/* Position progress bar */
+.carousel-progress {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.6); // optional background
+  color: white;
+  padding: 0.25rem 0.5rem;
+  font-size: 0.875rem;
+}
+
+.carousel {
+  scrollbar-width: none; // Firefox
+  &::-webkit-scrollbar {
+    display: none; // Chrome, Safari
+  }
+}
+
+.carousel-scrollbar {
+  margin-top: 1rem;
+  height: 4px;
+  width: 100%;
+  position: relative;
+}
+
+.scrollbar-track {
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 2px;
+  overflow: hidden;
+  position: relative;
+}
+
+.scrollbar-thumb {
+  height: 100%;
+  width: 20%; // default width, will stretch based on visible/total scroll ratio
+  background: white;
+  border-radius: 2px;
+  transition: transform 0.1s linear;
+}

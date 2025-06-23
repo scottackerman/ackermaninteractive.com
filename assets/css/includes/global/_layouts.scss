@@ -1,0 +1,71 @@
+@use 'variables' as *;
+@use '../mixins/mixins' as *;
+
+html {
+  background-color: var(--darkblue);
+}
+
+// Main content
+.main {
+  margin-top: 58px;
+}
+
+// Section wrapper
+.section {
+  padding: $spacing-6 $spacing-6;
+
+  @media screen and (min-width: $size-content-desktop) {
+    padding: $spacing-6 $spacing-8;
+    max-width: $size-content-desktop;
+    margin: 0 auto;
+  }
+}
+
+// Utility class
+@media (min-width: $size-content-desktop) {
+  .desktop\:display-block {
+    display: block;
+  }
+}
+
+.intro {
+  background-image: linear-gradient(
+    to bottom,
+    rgba(14, 11, 29, 0.9) 0%,
+    rgba(14, 11, 29, 0.7) 60%,
+    rgba(14, 11, 29, 0) 95%
+  ),
+    url('/assets/images/header_bg.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: left top;
+  padding-top: 122px;
+  margin-top: 120px;
+
+  h1 {
+    color: var(--white);
+    position: relative;
+    bottom: 0;
+    font-size: 20px;
+    margin: 0 $spacing-6;
+    text-align: center;
+
+    @media screen and (min-width: $size-content-desktop) {
+      font-size: 32px;
+      margin: 0;
+    }
+
+    span {
+      display: block;
+      font-size: 80px;
+      line-height: 100%;
+      margin-top: $spacing-3;
+      text-align: center;
+
+      @media screen and (min-width: $size-content-desktop) {
+        font-size: 140px;
+        margin-top: $spacing-1;
+      }
+    }
+  }
+}

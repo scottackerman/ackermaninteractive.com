@@ -1,0 +1,100 @@
+@use 'variables' as *;
+@use '../mixins/mixins' as *;
+
+// I put semantic tags + corresponding class names
+// in case of need for styling non-h tag text
+
+h1, .h1 {
+  @include text-style($font-heading, 48px, 100%, 700);
+  @media (max-width: $size-content-mobile) {
+    @include text-style($font-heading, 48px, 100%);
+  }
+}
+
+h2, .h2 {
+  margin-bottom: $spacing-4;
+  @include text-style($font-heading, 48px, 130%);
+  @media (max-width: $size-content-mobile) {
+    @include text-style($font-heading, 36px, 130%);
+  }
+}
+
+h3, .h3 {
+  @include text-style($font-heading, 24px, 135%);
+  @media (max-width: $size-content-mobile) {
+    @include text-style($font-heading, 22px, 140%);
+  }
+}
+
+h4, .h4 {
+  @include text-style($font-heading, 22px, 135%);
+  @media (max-width: $size-content-mobile) {
+    @include text-style($font-heading, 20px, 140%);
+  }
+}
+
+blockquote, .quote {
+  @include text-style($font-body, 48px, 140%);
+  @media (max-width: $size-content-mobile) {
+    @include text-style($font-body, 30px, 140%);
+  }
+}
+
+.body-small {
+  @include text-style($font-body, 14px, 150%);
+}
+
+p, .body-regular {
+  @include text-style($font-body, 18px, 155%);
+  @media (max-width: $size-content-mobile) {
+    @include text-style($font-body, 16px, 150%);
+  }
+}
+
+.body-large {
+  @include text-style($font-body, 24px, 145%);
+  @media (max-width: $size-content-mobile) {
+    @include text-style($font-body, 22px, 135%);
+  }
+}
+
+.eyebrow-small {
+  @include text-style($font-body, 14px, 115%, bold, uppercase, 2px);
+}
+
+.eyebrow-medium {
+  @include text-style($font-body, 16px, 150%, bold, uppercase, 2px);
+}
+
+.eyebrow-large {
+  @include text-style($font-body, 24px, 120%, bold, uppercase, 2px);
+}
+
+.input-label {
+  @include text-style($font-body, 16px, 115%);
+}
+
+.intro-span {
+  @include text-style($font-body, 140px, 120%, 900);
+}
+
+.nav {
+  @include text-style($font-body, 16px, auto, 900);
+  color: var(--purple);
+  text-decoration: none;
+  &.active {
+    text-decoration: underline;
+    text-underline-offset: 10px;
+  }
+  @media (min-width: $size-mobile-nav) {
+    @include text-style($font-body, 18px, auto, 900);
+    &.active {
+      text-underline-offset: 8px;
+    }
+  }
+}
+
+.trial-identity {
+  @include text-style($font-body, 55px, auto, 900);
+  color: var(--purple);
+}

@@ -1,0 +1,64 @@
+@use 'typography' as *;
+@use 'variables' as *;
+
+.card-area-padding {
+	padding-bottom: 32px;
+}
+
+.trial-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(495px, 1fr));
+  gap: 32px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+
+	.trial-card {
+		padding: 48px;
+		width: 100%;
+		//$size-content-mobile
+  	// width: 495px;
+		@media screen and (min-width: $size-content-mobile) {
+			width: 495px;
+		}
+
+		.trial-content {
+			display: flex;
+			flex-direction: column;
+			height: 100%;
+			gap: 24px;
+
+			.trial-icon-wrapper {
+				flex-shrink: 0;
+				width: 48px;
+				height: 48px;
+				// match with header
+				margin-top: 0.25rem;
+
+				.trial-icon {
+					display: block;
+					width: 100%;
+					height: auto;
+				}
+			}
+
+			.trial-details {
+				display: flex;
+				flex-direction: column;
+				flex-grow: 1;
+
+				ul {
+
+					li {
+						@extend .body-regular;
+						border-bottom: 1px solid var(--purplealphalight);
+					}
+				}
+
+				.trial-bottom {
+					margin-top: auto;
+				}
+			}
+		}
+	}
+}

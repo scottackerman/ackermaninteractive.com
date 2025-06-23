@@ -1,0 +1,9 @@
+// Mixin to generate text styles
+@mixin text-style($font, $size, $line-height, $weight: normal, $transform: none, $letter-spacing: normal) {
+  font-family: $font;
+  font-size: $size;
+  line-height: $line-height;
+  font-weight: $weight;
+  text-transform: $transform;
+  letter-spacing: $letter-spacing;
+}

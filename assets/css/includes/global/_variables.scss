@@ -1,0 +1,109 @@
+@use "sass:meta";
+@use "sass:string";
+@use "sass:list";
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Zilla+Slab:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap');
+
+$font-heading: "Zilla Slab", serif;
+$font-body: "Montserrat", sans-serif;
+
+// $ vars for media queries and preprocessor logic
+$size-content-mobile: 565px;
+$size-content-tablet: 780px;
+$size-mobile-nav: 900px;
+$size-content-sm-desktop: 1200px;
+$size-content-desktop: 1440px;
+
+$spacing-1: 1%;
+$spacing-2: 2%;
+$spacing-3: 3%;
+$spacing-4: 4%;
+$spacing-6: 6%;
+$spacing-8: 8%;
+$spacing-10: 10%;
+$spacing-12: 12%;
+$spacing-20: 20%;
+
+$border-radius--sm: 4px;
+$border-radius--med: 8px;
+$border-radius--lg: 16px;
+
+$button-tb: 16px;
+$button-lr: 24px;
+$button-lr-wide: 48px;
+
+$colors: (
+  "white": #FFFFFF,
+  "black": #000000,
+  "blackalphalight": #00000090,
+  "lightgray": #E0E0E0,
+  "quartzgray": #534B53,
+  "pink": #CB00A1,
+  "plum": #93328E,
+  "lightblue": #62B5E5,
+  "teal": #00B0B9,
+  "green": #009681,
+  "blue": #0047BB,
+  "purple": #440099,
+  "purplealpha": #44009950,
+  "purplealphalight": #44009920,
+  "darkpurple": #26005A,
+  "red": #C90000,
+  "darkblue": #0E0B1D,
+  "darkbluealpha": #0E0B1D80,
+  "darkblue-rgb": (14, 11, 29),
+  "highlight": orange,
+  "interactive": #00FF00,
+);
+
+// Generate class names for each color (--white, etc)
+:root {
+  @each $name, $value in $colors {
+    @if meta.type-of($value) == "color" {
+      --#{$name}: #{$value};
+    } @else if meta.type-of($value) == "list" and string.index($name, '-rgb') {
+      --#{$name}: #{list.join($value, ', ')};
+    }
+  }
+}
+
+// Generate classes for text colors (.white, etc)
+@each $name, $value in $colors {
+  .#{$name} {
+    color: var(--#{$name});
+  }
+}
+
+// Generate classes for bg colors (.bg-white, etc)
+@each $name, $value in $colors {
+  .bg-#{$name} {
+    background-color: var(--#{$name});
+  }
+}
+
+// Generate classes for border colors (.border-purple, etc)
+@each $name, $value in $colors {
+  .border-#{$name} {
+    border-color: var(--#{$name});
+  }
+}
+
+// Generate classes for hover background colors (hover:bg-blue, etc)
+@each $name, $value in $colors {
+  .hover\:bg-#{$name}:hover {
+    background-color: var(--#{$name});
+  }
+}
+
+// Generate classes for hover text colors (hover:blue, etc)
+@each $name, $value in $colors {
+  .hover\:#{$name}:hover {
+    color: var(--#{$name});
+  }
+}
+
+// Generate classes for hover border colors (hover:border-blue, etc)
+@each $name, $value in $colors {
+  .hover\:border-#{$name}:hover {
+    border-color: var(--#{$name});
+  }
+}

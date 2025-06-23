@@ -1,0 +1,74 @@
+@use 'variables' as *;
+@use '../mixins/mixins' as *;
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: $button-tb $button-lr;
+  border: none;
+  border-radius: $border-radius--med;
+  @include text-style($font-body, 16px, 24px, 500);
+  transition: background-color 0.25s linear;
+  cursor: pointer;
+
+  &.wide {
+    padding: $button-tb $button-lr-wide;
+  }
+
+  &.full {
+    width: 100%;
+    justify-content: space-between;
+    padding: 16px 24px;
+    text-decoration: none;
+  }
+
+  &.icon {
+    display: inline-flex;
+    gap: 8px;
+
+    &::after {
+      content: '';
+      display: inline-block;
+      width: 24px;
+      height: 24px;
+      background-image: url('/assets/images/icons/link-external.svg');
+      background-repeat: no-repeat;
+      background-size: contain;
+    }
+  }
+
+  &:disabled {
+    background-color: var(--blackalphalight);
+    color: var(--quartzgrey);
+    cursor: not-allowed;
+    pointer-events: none;
+    opacity: 0.4;
+    user-select: none;
+  }
+}
+
+.text-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: left;
+  @include text-style($font-body, 16px, 24px, 500);
+  cursor: pointer;
+
+  &.icon {
+    display: inline-flex;
+    gap: 8px;
+
+    &::after {
+      content: '';
+      display: inline-block;
+      width: 24px;
+      height: 24px;
+      background-image: url('/assets/images/icons/link-external.svg');
+      background-repeat: no-repeat;
+      background-size: contain;
+    }
+  }
+}
