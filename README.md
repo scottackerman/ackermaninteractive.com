@@ -1,4 +1,4 @@
-# Insmed.com Clinical Trials Site [![Netlify Status](https://api.netlify.com/api/v1/badges/14b889ef-44e0-454a-8ef4-5a537a17bdba/deploy-status)](https://app.netlify.com/projects/insmed-dev/deploys)
+# Ackerman portfolio site
 
 ---
 
