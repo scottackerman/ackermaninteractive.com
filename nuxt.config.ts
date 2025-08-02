@@ -6,13 +6,18 @@ import { defineNuxtConfig } from 'nuxt/config'
 export default defineNuxtConfig({
   ssr: true,
   compatibilityDate: '2025-06-20',
+  nitro: {
+    preset: 'static',
+    esbuild: {
+      options: {
+        target: 'esnext'
+      }
+    }
+  },
   vite: {
     build: {
       target: 'esnext'
     }
-  },
-  nitro: {
-    preset: 'static'
   },
   css: [
     '~/assets/css/main.scss'

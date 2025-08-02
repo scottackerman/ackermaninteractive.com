@@ -10,9 +10,17 @@ const projectModules = import.meta.glob<{ default: Project }>(
 const allProjects: Project[] = Object.values(projectModules).map(m => m.default)
 
 // Load featured.json
-const featuredData: FeaturedData = (await import('~/data/featured.json')).default
+let featuredData: FeaturedData
 
-export function useProjects() {
+async function loadFeatured() {
+  if (!featuredData) {
+    featuredData = (await import('~/data/featured.json')).default
+  }
+  return featuredData
+}
+
+export async function useProjects() {
+  const featured = await loadFeatured()
   const route = useRoute()
 
   // Sort projects based on category query param

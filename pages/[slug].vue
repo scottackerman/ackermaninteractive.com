@@ -6,7 +6,7 @@ import PortfolioCards from '~/components/global/portfolio-cards.vue'
 import type { Project } from '~/types/project'
 
 const route = useRoute()
-const { allProjects, getRelatedProjects } = useProjects()
+const { allProjects, getRelatedProjects } = await useProjects()
 
 // Project metadata
 const project = computed<Project | undefined>(() =>

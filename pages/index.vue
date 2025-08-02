@@ -39,7 +39,7 @@
   import { useRoute } from '#imports'
   import { useProjects } from '~/composables/useProjects'
 
-  const { sortedProjects } = useProjects()
+  const { sortedProjects } = await useProjects()
 
   gsap.registerPlugin(ScrollTrigger)
 
