@@ -27,9 +27,9 @@ jobs:
           remote-host: ${{ secrets.FTP_SERVER }}
           remote-user: ${{ secrets.FTP_USERNAME }}
           remote-password: ${{ secrets.FTP_PASSWORD }}
-          remote-path: "/htdocs"
+          remote-path: "/"
           local-folder: ".output/public"
-          sync: "delta"
+          sync: "mirror"
           exclude: |
             .git/
             node_modules/
