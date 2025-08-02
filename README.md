@@ -1,6 +1,6 @@
 # Ackerman portfolio site
 
-[![Deploy to IONOS](https://github.com/YOUR-USERNAME/YOUR-REPO/actions/workflows/deploy.yml/badge.svg)](https://github.com/YOUR-USERNAME/YOUR-REPO/actions/workflows/deploy.yml)
+[![Deploy to IONOS](https://github.com/scottackerman/sjackerman.com/actions/workflows/deploy.yml/badge.svg)](https://github.com/scottackerman/sjackerman.com/actions/workflows/deploy.yml)
 
 ---
 
