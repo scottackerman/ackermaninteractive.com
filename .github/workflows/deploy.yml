@@ -29,7 +29,7 @@ jobs:
           remote-password: ${{ secrets.FTP_PASSWORD }}
           remote-path: "/"
           local-folder: ".output/public"
-          sync: "mirror"
+          sync: "full"
           exclude: |
             .git/
             node_modules/
