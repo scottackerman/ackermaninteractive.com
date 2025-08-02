@@ -1,4 +1,4 @@
-name: Deploy to IONOS via SCP (Full Deploy)
+name: Deploy to IONOS via Native SFTP
 
 on:
   push:
@@ -9,7 +9,7 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      # Checkout the repository
+      # Checkout repository
       - name: Checkout repository
         uses: actions/checkout@v4
 
@@ -17,11 +17,11 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      # Build Nuxt static site
+      # Build Nuxt site
       - name: Build Nuxt site
         run: npm run generate
 
-      # Verify build output exists
+      # Verify build output
       - name: Verify build output
         run: |
           if [ ! -d ".output/public" ]; then
@@ -30,15 +30,20 @@ jobs:
           fi
           echo "Build output found:"
           ls -la .output/public
+          echo "_nuxt folder contents:"
+          ls -la .output/public/_nuxt || echo "_nuxt folder missing!"
 
-      # Deploy via SCP (SFTP mode)
-      - name: Deploy via SCP
-        uses: garygrossgarten/github-action-scp@release
-        with:
-          local: .output/public/
-          remote: /
-          host: ${{ secrets.FTP_SERVER }}
-          username: ${{ secrets.FTP_USERNAME }}
-          password: ${{ secrets.FTP_PASSWORD }}
-          port: 22
-          connectionTimeout: 20000
+      # Install sshpass for password-based SFTP
+      - name: Install sshpass
+        run: sudo apt-get update && sudo apt-get install -y sshpass
+
+      # Deploy using native SFTP
+      - name: Deploy to IONOS
+        run: |
+          sshpass -p "${{ secrets.FTP_PASSWORD }}" sftp -o StrictHostKeyChecking=no -P 22 \
+            ${{ secrets.FTP_USERNAME }}@${{ secrets.FTP_SERVER }} <<EOF
+          lcd .output/public
+          cd /
+          mput -r *
+          bye
+          EOF
