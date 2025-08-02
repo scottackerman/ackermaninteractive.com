@@ -1,4 +1,4 @@
-name: Deploy to IONOS via FTP
+name: Deploy to IONOS via SFTP
 
 on:
   push:
@@ -6,29 +6,25 @@ on:
       - main
 
 jobs:
-  ftp-deploy:
+  sftp-deploy:
     runs-on: ubuntu-latest
     steps:
-      # Pull repo
-      - name: Check out repository
+      - name: Checkout repository
         uses: actions/checkout@v4
 
-      # Install dependencies
       - name: Install dependencies
         run: npm ci
 
-      # Build Nuxt static site
-      - name: Build Nuxt site
+      - name: Build Nuxt static site
         run: npm run generate
 
-      # Deploy via FTP
-      - name: Deploy to IONOS
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+      - name: Deploy via SFTP (password auth)
+        uses: wlixcc/SFTP-Deploy-Action@v1.2.4
         with:
-          server: ${{ secrets.FTP_SERVER }}
-          username: ${{ secrets.FTP_USERNAME }}
-          password: ${{ secrets.FTP_PASSWORD }}
-          local-dir: .output/public/
-          server-dir: /htdocs/
-          protocol: ftps
-          state-name: .ftp-deploy-sync-state.json
+          username: ${{ secrets.SFTP_USERNAME }}
+          server: ${{ secrets.SFTP_SERVER }}
+          port: 22
+          password: ${{ secrets.SFTP_PASSWORD }}
+          local_path: .output/public/*
+          remote_path: /htdocs/
+          delete_remote_files: false
