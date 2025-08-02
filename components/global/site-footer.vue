@@ -30,7 +30,7 @@
 			</div>
 
 			<p class="body-small footer-legal">
-				Copyright &copy;{{ currentYear }}<br>All rights reserved.<br>
+				&copy;{{ currentYear }} ackermaninteractive.com | sjackerman.com<br>
 			</p>
 		</section>
 	</footer>
