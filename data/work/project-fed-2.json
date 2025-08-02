@@ -1,0 +1,12 @@
+{
+    "slug": "project-fed-2",
+    "title": "Project FED 2",
+    "shortDescription": "Short blurb.",
+    "heroImage": "placeholder.png",
+    "heroAltText": "TBD",
+    "category": ["front-end-engineer"],
+    "priority": 5,
+    "date": "2023-04-10",
+    "relatedTags": ["automotive", "data-viz", "react"],
+    "related": ["project-fed-1", "project-fed-3"]
+}

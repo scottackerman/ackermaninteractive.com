@@ -33,7 +33,15 @@ export default defineConfig([
       'nuxt/no-cjs-in-config': 'error',
       'nuxt/no-timing-in-fetch-data': 'error',
       'nuxt/no-global-nuxt-import': 'off'
-    }
+    },
+    overrides: [
+      {
+        files: ['pages/**/*.vue'],
+        rules: {
+          'vue/multi-word-component-names': 'off'
+        }
+      }
+    ]
   },
   ...tseslint.configs.recommended,
   pluginVue.configs['flat/essential'],

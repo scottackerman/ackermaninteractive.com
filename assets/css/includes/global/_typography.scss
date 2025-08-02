@@ -94,7 +94,7 @@ p, .body-regular {
   }
 }
 
-.trial-identity {
+.project-identity {
   @include text-style($font-body, 55px, auto, 900);
   color: var(--purple);
 }

@@ -4,7 +4,7 @@
       <Link rel="canonical" :href="`https://www.domain.com${route.path}`" />
       <Meta property="og:url" :content="`https://www.domain.com${route.path}`" />
     </Head>
-    <Body class="home">
+    <Body id="skills" class="home">
       <section class="intro tablet:center smdesktop:center desktop:center white" aria-labelledby="intro-title">
         <div class="section">
           <h1 ref="heading" id="intro-title">Heya! I'm scott :)</h1>
@@ -24,8 +24,7 @@
           </p>
         </div>
       </section>
-
-      <PortfolioCarousel></PortfolioCarousel>
+      <PortfolioCards :projects="sortedProjects" />
     </Body>
   </div>
 </template>
@@ -38,6 +37,9 @@
   import { gsap } from 'gsap'
   import { ScrollTrigger } from 'gsap/ScrollTrigger'
   import { useRoute } from '#imports'
+  import { useProjects } from '~/composables/useProjects'
+
+  const { sortedProjects } = useProjects()
 
   gsap.registerPlugin(ScrollTrigger)
 
@@ -53,8 +55,8 @@
     ogDescription: description,
     twitterTitle: title,
     twitterDescription: description,
-    ogImage: '/insmed-og.jpg',
-    twitterImage: '/insmed-x.jpg',
+    ogImage: '/TODO-og.jpg',
+    twitterImage: '/TODO-x.jpg',
     twitterCard: 'summary_large_image',
   })
 

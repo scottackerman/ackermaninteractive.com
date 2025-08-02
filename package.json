@@ -3,13 +3,12 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "npm run generate-sitemap && nuxt build",
+    "build": "npm run && nuxt build",
     "dev": "nuxt dev",
-    "generate": "npm run generate-sitemap && nuxt generate",
+    "generate": "npm run && nuxt generate",
     "preview": "nuxt preview",
     "analyze": "NODE_OPTIONS='--trace-warnings' nuxt build",
     "postinstall": "nuxt prepare",
-    "generate-sitemap": "node ./scripts/generate-sitemap.js",
     "lint:css": "stylelint **/*.{css,scss,vue} --custom-syntax postcss-html",
     "lint:css:fix": "stylelint **/*.{css,scss,vue} --fix",
     "lint:js": "eslint components/ data/ pages/ composables/"
@@ -20,7 +19,6 @@
     "@nuxt/devtools": "^1.0.8",
     "@nuxtjs/i18n": "^8.1.1",
     "@stylistic/stylelint-plugin": "^3.1.2",
-    "@zadigetvoltaire/nuxt-gtm": "^0.0.13",
     "eslint": "^9.29.0",
     "eslint-plugin-nuxt": "^4.0.0",
     "eslint-plugin-vue": "^10.2.0",
@@ -37,7 +35,10 @@
     "vite-svg-loader": "^5.1.0"
   },
   "dependencies": {
+    "@nuxt/content": "^3.6.3",
     "axios": "^1.6.7",
+    "better-sqlite3": "^12.2.0",
+    "gsap": "^3.13.0",
     "pinia": "^2.1.7"
   }
 }

@@ -25,17 +25,17 @@
 			</div>
 			<ul class="menu" :class="{ 'active': navOpen }" id="nav" :aria-hidden="!navOpen">
 				<li>
-					<a class="nav" href="#skills" @click="navOpen = false" :aria-current="route.hash === '#skills' ? 'page' : null">
+					<a class="nav" href="/#skills" @click="navOpen = false" :aria-current="route.hash === '#skills' ? 'page' : undefined">
 						Skills
 					</a>
 				</li>
 				<li>
-					<a class="nav" href="#work" @click="navOpen = false" :aria-current="route.hash === '#work' ? 'page' : null">
+					<a class="nav" href="/#work" @click="navOpen = false" :aria-current="route.hash === '#work' ? 'page' : undefined">
 						Work
 					</a>
 				</li>
 				<li>
-					<a class="nav" href="#endorsements" @click="navOpen = false" :aria-current="route.hash === '#endorsements' ? 'page' : null">
+					<a class="nav" href="/#endorsements" @click="navOpen = false" :aria-current="route.hash === '#endorsements' ? 'page' : undefined">
 						Endorsements
 					</a>
 				</li>

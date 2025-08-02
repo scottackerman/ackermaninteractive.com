@@ -1,0 +1,22 @@
+{
+  "default": [
+    "project-fed-1",
+    "project-datavis-1",
+    "project-pd-1"
+  ],
+  "fed": [
+    "project-fed-1",
+    "project-fed-2",
+    "project-fed-3"
+  ],
+  "product-design": [
+    "project-pd-1",
+    "project-pd-2",
+    "project-pd-3"
+  ],
+  "data-vis": [
+    "project-datavis-1",
+    "project-datavis-2",
+    "project-datavis-3"
+  ]
+}

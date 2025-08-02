@@ -1,34 +1,18 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 
 import { defineNuxtConfig } from 'nuxt/config'
-import svgLoader from 'vite-svg-loader'
+// import svgLoader from 'vite-svg-loader'
 
 export default defineNuxtConfig({
   ssr: true,
-  plugins: ['~/plugins/gtm-pageview.client.ts'],
   compatibilityDate: '2025-06-20',
   nitro: {
     preset: 'static'
   },
-  devtools: { enabled: true },
-  modules: ['@zadigetvoltaire/nuxt-gtm', '@hypernym/nuxt-gsap'],
-  vite: {
-    plugins: [svgLoader()]
-  },
-  gtm: {
-    id: 'GTM-',
-    defer: true,
-    enabled: true,
-    debug: true
-  },
   css: [
     '~/assets/css/main.scss'
   ],
-  gsap: {
-    extraPlugins: {
-      scrollTrigger: true
-    }
-  },
+  modules: ['@nuxt/content'],
   app: {
     head: {
       titleTemplate: '%s · Ackerman portfolio',

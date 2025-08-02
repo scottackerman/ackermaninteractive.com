@@ -1,0 +1,12 @@
+{
+    "slug": "project-datavis-3",
+    "title": "Project Datavis 3",
+    "shortDescription": "Short blurb.",
+    "heroImage": "placeholder.png",
+    "heroAltText": "TBD",
+    "category": ["data-vis"],
+    "priority": 3,
+    "date": "2023-04-10",
+    "relatedTags": ["automotive", "data-viz", "react"],
+    "related": ["project-datavis-1", "project-datavis-2"]
+}

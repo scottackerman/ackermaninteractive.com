@@ -5,44 +5,45 @@
 	padding-bottom: 32px;
 }
 
-.trial-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(495px, 1fr));
-  gap: 32px;
-  list-style: none;
-  padding: 0;
-  margin: 0;
+.project-list {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(395px, 1fr));
+	gap: 32px;
+	list-style: none;
+	padding: 0;
+	margin: 0 auto;
+	max-width: 1200px; // TODO
 
-	.trial-card {
+	.project-card {
 		padding: 48px;
 		width: 100%;
-		//$size-content-mobile
-  	// width: 495px;
+		background-color: white;
+		border-radius: 24px;
 		@media screen and (min-width: $size-content-mobile) {
 			width: 495px;
 		}
 
-		.trial-content {
+		.project-content {
 			display: flex;
 			flex-direction: column;
 			height: 100%;
 			gap: 24px;
 
-			.trial-icon-wrapper {
+			.project-image-wrapper {
 				flex-shrink: 0;
-				width: 48px;
-				height: 48px;
+				width: 100%;
+				height: auto;
 				// match with header
 				margin-top: 0.25rem;
 
-				.trial-icon {
+				.project-image {
 					display: block;
 					width: 100%;
-					height: auto;
+					height: 20px;
 				}
 			}
 
-			.trial-details {
+			.project-details {
 				display: flex;
 				flex-direction: column;
 				flex-grow: 1;
@@ -55,7 +56,7 @@
 					}
 				}
 
-				.trial-bottom {
+				.project-bottom {
 					margin-top: auto;
 				}
 			}

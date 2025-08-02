@@ -1,0 +1,12 @@
+{
+    "slug": "project-pd-3",
+    "title": "Project PD 3",
+    "shortDescription": "Short blurb.",
+    "heroImage": "placeholder.png",
+    "heroAltText": "TBD",
+    "category": ["product-design"],
+    "priority": 1,
+    "date": "2023-04-10",
+    "relatedTags": ["automotive", "data-viz", "react"],
+    "related": ["project-pd-1", "project-pd-2"]
+}

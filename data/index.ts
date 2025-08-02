@@ -6,12 +6,12 @@ export default {
   "mainEntity": {
     "@type": "ItemList",
     "itemListElement": [
-      // A node for each trial card on the homepage
+      // A node for each project card on the homepage
       {
-        "@type": "MedicalTrial",
-        "name": "TODO: Trial Name",
-        "description": "TODO: Trial description",
-        "status": "TODO: Trial Status",
+        "@type": "Medicalproject",
+        "name": "TODO: project Name",
+        "description": "TODO: project description",
+        "status": "TODO: project Status",
         "sponsor": {
           "@type": "Organization",
           "name": "TODO: Sponsor name",
@@ -37,11 +37,11 @@ export default {
         ],
         "startDate": "TODO: 2025-05-01",
         "endDate": "TODO: 2026-06-30",
-        "identifier": "TODO: .gov id for this trial",
+        "identifier": "TODO: .gov id for this project",
         "url": "TODO: Canonical url to our production homepage",
-        "phase": "TODO: https://schema.org/MedicalTrialPhase/Phase3", // This will be a link to schema.org, we need to make sure it's pointing to the right phase number.
+        "phase": "TODO: https://schema.org/MedicalprojectPhase/Phase3", // This will be a link to schema.org, we need to make sure it's pointing to the right phase number.
         "studyDesign": "TODO: (Randomized, Double-Blind, Placebo-Controlled, etc)",
-        "trialDesign": "TODO: (Parallel Group, Factorial Assignment, etc)",
+        "projectDesign": "TODO: (Parallel Group, Factorial Assignment, etc)",
         "population": "TODO: (Adults aged 18-65 with condition..)",
         "principalInvestigator": {
           "@type": "Person",
@@ -52,7 +52,7 @@ export default {
           }
         }
       }
-      // ... More nodes for each trial, DON'T FORGET COMMA ^
+      // ... More nodes for each project, DON'T FORGET COMMA ^
     ]
   }
 }

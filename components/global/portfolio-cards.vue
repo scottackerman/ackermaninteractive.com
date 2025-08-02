@@ -1,35 +1,32 @@
 <template>
-  <ul class="trial-list">
-    <li v-for="(trial, index) in trials" :key="index" class="trial-card">
-      <article class="trial-content">
-        <div class="trial-icon-wrapper" aria-hidden="true">
-          <img :src="`/images/icons/${trial.icon}`" alt="" class="trial-icon" />
+  <ul id="work" class="project-list">
+    <li
+      v-for="project in projects"
+      :key="project.slug"
+      class="project-card"
+    >
+      <article class="project-content">
+        <div class="project-image-wrapper" aria-hidden="true">
+          <img
+            :src="`/images/${project.heroImage}`"
+            :alt="project.heroAltText || ''"
+            class="project-image"
+          />
         </div>
-
-        <div class="trial-details">
-          <div class="trial top">
-            <h3 class="purple card-area-padding">{{ trial.title }}</h3>
-            <p class="quartzgray card-area-padding">{{ trial.description }}</p>
-
-            <section class="card-area-padding" :aria-labelledby="`status-heading-${index}`">
-              <h4 class="purple eyebrow-medium" :id="`status-heading-${index}`">Status</h4>
-              <ul>
-                <li>Status: {{ trial.status }}</li>
-                <li>Phase: {{ trial.phase }}</li>
-                <li>Locations: {{ trial.locations }}</li>
-              </ul>
-            </section>
-
-            <section class="card-area-padding" :aria-labelledby="`criteria-heading-${index}`">
-              <h4 class="purple eyebrow-medium" :id="`criteria-heading-${index}`">Key Criteria</h4>
-              <ul>
-                <li v-for="(item, i) in trial.criteria" :key="i">{{ item }}</li>
-              </ul>
-            </section>
+        <div class="project-details">
+          <div class="project-top">
+            <h3 class="purple card-area-padding">{{ project.title }}</h3>
+            <p class="quartzgray card-area-padding">
+              {{ project.shortDescription }}
+            </p>
           </div>
-          <div class="trial-bottom">
-            <p class="trial-identity card-area-padding">{{ trial.identity }}</p>
-            <a :href="trial.url" class="white bg-purple btn icon card-area-padding wide full" target="_blank">Find Out More</a>
+          <div class="project-bottom">
+            <NuxtLink
+              :to="`/${project.slug}`"
+              class="white bg-purple btn icon card-area-padding wide full"
+            >
+              Find Out More
+            </NuxtLink>
           </div>
         </div>
       </article>
@@ -38,5 +35,9 @@
 </template>
 
 <script setup lang="ts">
-	import trials from '~/data/trials.json'
+  import type { Project } from '~/types/project'
+
+  defineProps<{
+    projects: Project[]
+  }>()
 </script>
