@@ -21,7 +21,7 @@ jobs:
       - name: Build Nuxt site
         run: npm run generate
 
-      # Verify build output exists and is correct
+      # Verify build output exists
       - name: Verify build output
         run: |
           if [ ! -d ".output/public" ]; then
@@ -31,7 +31,7 @@ jobs:
           echo "Build output found:"
           ls -la .output/public
 
-      # 5. Deploy to IONOS via SFTP
+      # Deploy to IONOS via SFTP (from inside public folder)
       - name: Deploy via SFTP
         uses: milanmk/actions-file-deployer@master
         with:
@@ -40,10 +40,6 @@ jobs:
           remote-user: ${{ secrets.FTP_USERNAME }}
           remote-password: ${{ secrets.FTP_PASSWORD }}
           remote-path: "/"
-          local-folder: .output/public
+          local-folder: "."
           sync: "full"
-          exclude: |
-            .git/
-            node_modules/
-            .github/
-            .gitignore
+          working-directory: .output/public
