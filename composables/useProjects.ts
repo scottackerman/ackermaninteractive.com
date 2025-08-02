@@ -1,34 +1,26 @@
 import { computed } from 'vue'
-import { useRoute } from 'vue-router'
 import type { Project, FeaturedData } from '~/types/project'
 
-// Pull in all project metadata
+// Eager‑load all project metadata
 const projectModules = import.meta.glob<{ default: Project }>(
   '~/data/work/*.json',
   { eager: true }
 )
 const allProjects: Project[] = Object.values(projectModules).map(m => m.default)
 
-// Load featured.json
-let featuredData: FeaturedData
+// Eager‑load featured.json
+import featuredData from '~/data/featured.json'
 
-async function loadFeatured() {
-  if (!featuredData) {
-    featuredData = (await import('~/data/featured.json')).default
-  }
-  return featuredData
-}
+// Tell TS the shape
+const featured: FeaturedData = featuredData as FeaturedData
 
-export async function useProjects() {
-  const featured = await loadFeatured()
-  const route = useRoute()
+export function useProjects(options: { category?: string | null } = {}) {
+  const { category = null } = options
 
-  // Sort projects based on category query param
   const sortedProjects = computed<Project[]>(() => {
-    const category = (route.query.category as string) || null
     const featuredSlugs = category
-      ? featuredData[category] || []
-      : featuredData.default || []
+      ? featured[category] || []
+      : featured.default || []
 
     const ordered: Project[] = []
 
@@ -53,7 +45,7 @@ export async function useProjects() {
         .sort((a, b) => (a.priority ?? 999) - (b.priority ?? 999))
       ordered.push(...remaining)
     } else {
-      // If no category, sort by project level priority
+      // If no category, sort by priority
       const remaining = allProjects
         .filter(p => !featuredSlugs.includes(p.slug))
         .sort((a, b) => (a.priority ?? 999) - (b.priority ?? 999))
@@ -63,14 +55,13 @@ export async function useProjects() {
     return ordered
   })
 
-  // Get related projects for a detail page
   function getRelatedProjects(currentSlug: string, count = 3): Project[] {
     const current = allProjects.find(p => p.slug === currentSlug)
     if (!current) return []
 
     const related: Project[] = []
 
-    // Put featured projects from same category first
+    // Explicit related list first
     if (current.related?.length) {
       current.related.forEach(slug => {
         const proj = allProjects.find(p => p.slug === slug)
@@ -78,7 +69,7 @@ export async function useProjects() {
       })
     }
 
-    // Then the rest of that category
+    // Same category
     const sameCategory = allProjects.filter(
       p =>
         p.slug !== current.slug &&
@@ -87,7 +78,7 @@ export async function useProjects() {
     )
     related.push(...sameCategory)
 
-    // Then shared tags if any
+    // Shared tags
     const sharedTags = allProjects.filter(
       p =>
         p.slug !== current.slug &&
@@ -96,7 +87,7 @@ export async function useProjects() {
     )
     related.push(...sharedTags)
 
-    // Project level priority
+    // Fallback: by priority
     const fallback = allProjects
       .filter(
         p => p.slug !== current.slug && !related.some(r => r.slug === p.slug)

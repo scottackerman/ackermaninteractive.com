@@ -11,7 +11,4 @@ export interface Project {
   related?: string[]
 }
 
-export interface FeaturedData {
-  default: string[]
-  [category: string]: string[]
-}
+export type FeaturedData = Record<string, string[]>

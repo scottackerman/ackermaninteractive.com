@@ -1,54 +1,43 @@
-<script setup lang="ts">
-import { useRoute } from 'vue-router'
-import { useAsyncData } from '#app'
-import { useProjects } from '~/composables/useProjects'
-import PortfolioCards from '~/components/global/portfolio-cards.vue'
-import type { Project } from '~/types/project'
-
-const route = useRoute()
-const { allProjects, getRelatedProjects } = await useProjects()
-
-// Project metadata
-const project = computed<Project | undefined>(() =>
-  allProjects.find(p => p.slug === route.params.slug)
-)
-
-// Related projects
-const related = computed(() =>
-  project.value ? getRelatedProjects(project.value.slug, 3) : []
-)
-
-// Markdown content
-const { data: markdown } = await useAsyncData(
-  `project-${route.params.slug}`,
-  () => queryContent(`/work/${route.params.slug}`).findOne()
-)
-</script>
-
 <template>
-  <div v-if="project">
-    <div class="project-details section">
-      <!-- Hero -->
-      <section class="hero">
-        <img :src="`/images/${project.heroImage}`" :alt="project.heroAltText || ''" />
-        <h1>{{ project.title }}</h1>
-        <p>{{ project.shortDescription }}</p>
-      </section>
+  <article class="project-detail">
+    <!-- Render the HTML partial for this project -->
+    <div v-html="projectHtml"></div>
 
-      <!-- Markdown content -->
-      <section v-if="markdown" class="long-content">
-        <ContentRenderer :value="markdown" />
-      </section>
-
-      <!-- Related projects -->
-      <section class="related">
-        <h2>Similar Projects</h2>
-        <PortfolioCards :projects="related" />
-      </section>
-    </div>
-  </div>
-
-  <div v-else>
-    <p>Project not found.</p>
-  </div>
+    <!-- Related projects -->
+    <section v-if="relatedProjects.length" class="related-projects">
+      <h2>Related Projects</h2>
+      <PortfolioCards :projects="relatedProjects" />
+    </section>
+  </article>
 </template>
+
+<script setup lang="ts">
+  import { useRoute } from 'vue-router'
+  import { useProjects } from '~/composables/useProjects'
+  import PortfolioCards from '~/components/global/portfolio-cards.vue'
+  import type { Project } from '~/types/project'
+
+  // Get the slug from the route
+  const route = useRoute()
+  const slug = route.params.slug as string
+
+  // Load all projects & related helper
+  const { allProjects, getRelatedProjects } = useProjects()
+
+  // Find the current project metadata
+  const project = allProjects.find((p: Project) => p.slug === slug)
+
+  if (!project) {
+    throw createError({ statusCode: 404, statusMessage: 'Project not found' })
+  }
+
+  // Load HTML partials (all eager-loaded at build time)
+  const partials = import.meta.glob('/partials/*.html', { as: 'raw', eager: true })
+
+  // Match the file name to the project slug
+  const partialPath = `/partials/${slug}.html`
+  const projectHtml = partials[partialPath] || `<p>Content coming soon.</p>`
+
+  // Get related projects
+  const relatedProjects = getRelatedProjects(slug)
+</script>

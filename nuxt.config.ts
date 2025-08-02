@@ -8,10 +8,10 @@ export default defineNuxtConfig({
   compatibilityDate: '2025-06-20',
   nitro: {
     preset: 'static',
-    esbuild: {
-      options: {
-        target: 'esnext'
-      }
+    debug: true,
+    prerender: {
+      crawlLinks: true,
+      failOnError: true
     }
   },
   vite: {

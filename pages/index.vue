@@ -39,11 +39,11 @@
   import { useRoute } from '#imports'
   import { useProjects } from '~/composables/useProjects'
 
-  const { sortedProjects } = await useProjects()
+  const route = useRoute()
+  const category = (route.query?.category as string) || null
+  const { sortedProjects } = useProjects({ category })
 
   gsap.registerPlugin(ScrollTrigger)
-
-  const route = useRoute()
   const title = 'Home'
   const description = 'Page Description'
   const heading = ref<HTMLElement | null>(null)
