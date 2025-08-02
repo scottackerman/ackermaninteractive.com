@@ -1,4 +1,4 @@
-name: Deploy to IONOS via Native SFTP
+name: Deploy to server via Native SFTP
 
 on:
   push:
