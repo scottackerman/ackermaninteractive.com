@@ -1,4 +1,4 @@
-name: Deploy to IONOS via SFTP
+name: Deploy to IONOS via SFTP (Raw Copy)
 
 on:
   push:
@@ -9,30 +9,36 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
+      # Checkout the repository
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      # Install dependencies
       - name: Install dependencies
         run: npm ci
 
-      - name: Build Nuxt static site
+      # Build Nuxt static site
+      - name: Build Nuxt site
         run: npm run generate
 
-      - name: Verify build output
+      # Debug paths to confirm build output exists
+      - name: Debug build paths
         run: |
-          if [ ! -d ".output/public" ]; then
-            echo "ERROR: .output/public not found!"
-            exit 1
-          fi
-          ls -la .output/public
+          echo "PWD: $(pwd)"
+          echo "Repo root contents:"
+          ls -la
+          echo ".output contents:"
+          ls -la .output || echo "No .output folder!"
+          echo ".output/public contents:"
+          ls -la .output/public || echo "No .output/public folder!"
 
-      - name: Deploy via SFTP
-        uses: wlixcc/SFTP-Deploy-Action@v1.2.4
+      # Deploy via raw SCP/SFTP
+      - name: Deploy via SCP (SFTP mode)
+        uses: garygrossgarten/github-action-scp@release
         with:
-          server: ${{ secrets.FTP_SERVER }}
+          local: .output/public/
+          remote: /
+          host: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
           port: 22
-          local_path: ".output/public/*"
-          remote_path: "/"
-          sftp_only: true
