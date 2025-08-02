@@ -1,6 +1,6 @@
 # Ackerman portfolio site
 
-[![Deploy to Server](https://github.com/scottackerman/sjackerman.com/actions/workflows/deploy.yml/badge.svg)](https://github.com/scottackerman/sjackerman.com/actions/workflows/deploy.yml)
+[![Deploy to Server](https://github.com/scottackerman/ackermaninteractive.com/actions/workflows/deploy.yml/badge.svg)](https://github.com/scottackerman/ackermaninteractive.com/actions/workflows/deploy.yml)
 
 ---
 
