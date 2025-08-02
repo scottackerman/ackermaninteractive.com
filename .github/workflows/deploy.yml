@@ -1,4 +1,4 @@
-name: Deploy to IONOS via SFTP (Raw Copy)
+name: Deploy to IONOS via SCP (Full Deploy)
 
 on:
   push:
@@ -21,19 +21,18 @@ jobs:
       - name: Build Nuxt site
         run: npm run generate
 
-      # Debug paths to confirm build output exists
-      - name: Debug build paths
+      # Verify build output exists
+      - name: Verify build output
         run: |
-          echo "PWD: $(pwd)"
-          echo "Repo root contents:"
-          ls -la
-          echo ".output contents:"
-          ls -la .output || echo "No .output folder!"
-          echo ".output/public contents:"
-          ls -la .output/public || echo "No .output/public folder!"
+          if [ ! -d ".output/public" ]; then
+            echo "ERROR: .output/public not found!"
+            exit 1
+          fi
+          echo "Build output found:"
+          ls -la .output/public
 
-      # Deploy via raw SCP/SFTP
-      - name: Deploy via SCP (SFTP mode)
+      # Deploy via SCP (SFTP mode)
+      - name: Deploy via SCP
         uses: garygrossgarten/github-action-scp@release
         with:
           local: .output/public/
@@ -42,3 +41,4 @@ jobs:
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
           port: 22
+          connectionTimeout: 20000
