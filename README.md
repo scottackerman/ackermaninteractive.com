@@ -10,7 +10,7 @@
 
 Each page has it's own structured data file here: `/data/{page}.ts`.
 
-### project pages
+### Project pages
 
 projects can be edited or added to by updating `/data/projects.json`. Just edit, reorder, add, or remove nodes as needed.
 
