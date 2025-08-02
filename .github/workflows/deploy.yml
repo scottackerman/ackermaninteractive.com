@@ -1,4 +1,4 @@
-name: Deploy to server via Native SFTP
+name: Deploying ackermaninteractive via Native SFTP
 
 on:
   push:
