@@ -9,17 +9,25 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
+      # Pull repo
       - name: Checkout repository
         uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
 
+      # Install dependencies
       - name: Install dependencies
         run: npm ci
 
-      - name: Build Nuxt static site
+      # Build Nuxt static site
+      - name: Build Nuxt site
         run: npm run generate
 
+      # Debug and verify build output exists
+      - name: Verify build output
+        run: |
+          echo "Listing build output directory..."
+          ls -la .output/public || (echo "ERROR: .output/public not found!" && exit 1)
+
+      # 5. Deploy to IONOS via SFTP
       - name: Deploy via SFTP
         uses: milanmk/actions-file-deployer@master
         with:
