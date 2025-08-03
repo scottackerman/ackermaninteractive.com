@@ -15,8 +15,8 @@
         </div>
         <div class="project-details">
           <div class="project-top">
-            <h3 class="purple card-area-padding">{{ project.title }}</h3>
-            <p class="quartzgray card-area-padding">
+            <h3 class="card-area-padding">{{ project.title }}</h3>
+            <p class="card-area-padding">
               {{ project.shortDescription }}
             </p>
           </div>

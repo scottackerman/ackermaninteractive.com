@@ -15,9 +15,10 @@
 	max-width: 1200px; // TODO
 
 	.project-card {
+		color: white;
 		padding: 48px;
 		width: 100%;
-		background-color: white;
+		background: var(--gradient-deep-purple);
 		border-radius: 24px;
 		@media screen and (min-width: $size-content-mobile) {
 			width: 495px;

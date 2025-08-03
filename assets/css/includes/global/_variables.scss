@@ -43,6 +43,7 @@ $colors: (
   "teal": #00B0B9,
   "green": #009681,
   "blue": #0047BB,
+  "lightpurple": #8D47FF,
   "purple": #440099,
   "purplealpha": #44009950,
   "purplealphalight": #44009920,
@@ -57,6 +58,11 @@ $colors: (
 
 // Generate class names for each color (--white, etc)
 :root {
+
+  --gradient-light-purple: linear-gradient(to bottom, var(--lightpurple) 0%, var(--purple) 100%);
+	--gradient-deep-purple: linear-gradient(to bottom, var(--purple) 0%, var(--darkpurple) 100%);
+	// --gradient-dark: linear-gradient(105deg, var(--gradient-deep-first) 7.51%, var(--gradient-deep-second) 30.67%, var(--gradient-deep-third) 70.13%, var(--gradient-deep-fourth) 93.29%);
+
   @each $name, $value in $colors {
     @if meta.type-of($value) == "color" {
       --#{$name}: #{$value};

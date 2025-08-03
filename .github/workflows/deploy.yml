@@ -1,4 +1,4 @@
-name: Deploying ackermaninteractive via Native SFTP
+name: Deploying ackermaninteractive via github SFTP
 
 on:
   push:
@@ -25,20 +25,20 @@ jobs:
       - name: Verify build output
         run: |
           if [ ! -d ".output/public" ]; then
-            echo "ERROR: .output/public not found!"
+            echo "ERROR: .output/public not found"
             exit 1
           fi
           echo "Build output found:"
           ls -la .output/public
           echo "_nuxt folder contents:"
-          ls -la .output/public/_nuxt || echo "_nuxt folder missing!"
+          ls -la .output/public/_nuxt || echo "_nuxt folder missing"
 
       # Install sshpass for password-based SFTP
       - name: Install sshpass
         run: sudo apt-get update && sudo apt-get install -y sshpass
 
       # Deploy using native SFTP
-      - name: Deploy to IONOS
+      - name: Deploy to server
         run: |
           sshpass -p "${{ secrets.FTP_PASSWORD }}" sftp -o StrictHostKeyChecking=no -P 22 \
             ${{ secrets.FTP_USERNAME }}@${{ secrets.FTP_SERVER }} <<EOF
