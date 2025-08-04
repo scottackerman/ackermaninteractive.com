@@ -25,8 +25,8 @@
 			</div>
 			<ul class="menu" :class="{ 'active': navOpen }" id="nav" :aria-hidden="!navOpen">
 				<li>
-					<a class="nav" href="/#skills" @click="navOpen = false" :aria-current="route.hash === '#skills' ? 'page' : undefined">
-						Skills
+					<a class="nav" href="/#about" @click="navOpen = false" :aria-current="route.hash === '#skills' ? 'page' : undefined">
+						About
 					</a>
 				</li>
 				<li>

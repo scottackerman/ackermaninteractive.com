@@ -1,5 +1,6 @@
 <template>
-  <ul id="work" class="project-list">
+  <h2 id="work" class="white center">Things I've worked on</h2>
+  <ul class="project-list">
     <li
       v-for="project in projects"
       :key="project.slug"

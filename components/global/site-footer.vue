@@ -7,7 +7,7 @@
 				</NuxtLink>
 
 				<nav class="footer-links" aria-label="Footer Navigation">
-					<NuxtLink class="nav" to="#" @click="navOpen = false">
+					<NuxtLink class="nav" to="#">
 						Skills
 					</NuxtLink>
 					<NuxtLink class="nav" to="#" @click="navOpen = false">
@@ -17,13 +17,13 @@
 						Endorsements
 					</NuxtLink>
 
-					<NuxtLink class="nav" to="#" @click="navOpen = false">
+					<NuxtLink class="nav" to="https://github.com/scottackerman" target="_blank" @click="navOpen = false">
 						Github
 					</NuxtLink>
-					<NuxtLink class="nav" to="#" @click="navOpen = false">
+					<NuxtLink class="nav" to="https://www.linkedin.com/in/sackerman/" target="_blank">
 						CodePen
 					</NuxtLink>
-					<NuxtLink class="nav" to="#" @click="navOpen = false">
+					<NuxtLink class="nav" to="https://www.linkedin.com/in/sackerman/" target="_blank" @click="navOpen = false">
 						Linkedin
 					</NuxtLink>
 				</nav>
