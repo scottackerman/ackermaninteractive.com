@@ -5,7 +5,7 @@
       <Meta property="og:url" :content="`https://www.domain.com${route.path}`" />
     </Head>
     <Body id="about" class="home">
-      <section class="intro tablet:center smdesktop:center desktop:center white" aria-labelledby="intro-title">
+      <!-- <section class="intro tablet:center smdesktop:center desktop:center white" aria-labelledby="intro-title">
         <div class="section">
           <h1 ref="heading" id="intro-title">Heya! I'm scott :)</h1>
           <p>
@@ -65,7 +65,7 @@
             Leorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas commodo sed lectus non tincidunt. Fusce pulvinar purus luctus dolor posuere dictum. Mauris id lectus tempor sapien sodales eleifend vitae quis dolor. Praesent tellus nibh, laoreet pharetra felis eu, elementum congue risus. Maecenas purus arcu, fermentum quis leo vitae, convallis euismod ligula. Quisque et tempus risus. Donec cursus quam vitae lacus efficitur, eu placerat urna porttitor. Mauris tempus felis nisi, nec faucibus enim suscipit at. Morbi lobortis eros vitae sagittis interdum. Quisque orci diam, vulputate ac sagittis ut, ultricies ut sem. Nunc aliquam ipsum eu ligula dictum cursus. Morbi cursus semper ligula, quis porttitor libero sodales sit amet. Duis malesuada quam magna, ac imperdiet eros euismod ut. Suspendisse vehicula dolor bibendum sapien pretium, quis vestibulum tellus elementum. Mauris eget enim eget justo dictum lobortis. Nulla pellentesque porta magna a congue. In et aliquet sapien. Integer vestibulum, mi sed consequat pellentesque, nibh velit fringilla est, tincidunt ultrices orci mi non nunc. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Pellentesque volutpat turpis arcu, sit amet luctus velit euismod sit amet. Etiam a sodales nisi. Duis urna purus, aliquet in metus eget, mollis finibus risus. Pellentesque neque justo, fringilla non vehicula vel, ultricies id sapien. Mauris ex nulla, dignissim non nisl ut, vestibulum interdum turpis.
           </p>
         </div>
-      </section>
+      </section> -->
     </Body>
   </div>
 </template>
