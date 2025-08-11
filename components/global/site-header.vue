@@ -20,9 +20,9 @@
 				<img src="/assets/images/ackerman.png" alt="Ackerman signature" />
 			</NuxtLink>
 
-			<div class="external-links white">
+			<!-- <div class="external-links white">
 				Sharing..
-			</div>
+			</div> -->
 			<ul class="menu" :class="{ 'active': navOpen }" id="nav" :aria-hidden="!navOpen">
 				<li>
 					<a class="nav" href="/#about" @click="navOpen = false" :aria-current="route.hash === '#skills' ? 'page' : undefined">

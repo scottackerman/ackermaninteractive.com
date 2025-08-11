@@ -17,7 +17,7 @@
 						Endorsements
 					</NuxtLink>
 
-					<NuxtLink class="nav" to="https://github.com/scottackerman" target="_blank" @click="navOpen = false">
+					<!-- <NuxtLink class="nav" to="https://github.com/scottackerman" target="_blank" @click="navOpen = false">
 						Github
 					</NuxtLink>
 					<NuxtLink class="nav" to="https://www.linkedin.com/in/sackerman/" target="_blank">
@@ -25,7 +25,7 @@
 					</NuxtLink>
 					<NuxtLink class="nav" to="https://www.linkedin.com/in/sackerman/" target="_blank" @click="navOpen = false">
 						Linkedin
-					</NuxtLink>
+					</NuxtLink> -->
 				</nav>
 			</div>
 
